@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "204950ea-12c2-498c-8878-2f41216dd78c": {
+      "ProjectGuid": "204950ea-12c2-498c-8878-2f41216dd78c",
+      "DisplayName": "SFMLGame",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
