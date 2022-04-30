@@ -15,12 +15,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bouncing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
