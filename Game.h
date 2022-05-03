@@ -7,17 +7,23 @@ public:
 	Game();
 	~Game();
 
-	//void HandleInput();
+	void HandleInput();
 	void Update();
 	void Render();
 	Window* GetWindow();
 
-private:
-	void MoveDuck();
-	Window m_window;
+	sf::Time GetElapsed();
+	void RestartClock();
 
-	sf::Texture m_duckTexture;
-	sf::Sprite m_duck;
+private:
+	void MoveSprite();
+	void GetTime();
+	Window m_window;
+	sf::Clock m_clock;
+	sf::Time m_elapsed;
+
+	sf::Texture m_mushroomTexture;
+	sf::Sprite m_mushroom;
 	sf::Vector2i m_increment;
 
 };
