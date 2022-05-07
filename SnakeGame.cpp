@@ -49,6 +49,8 @@ void SnakeGame::Update()
 		if (m_Snake.HasLost())
 		{
 			m_textbox.Add("GAME OVER! Score: " + std::to_string(m_Snake.GetScore()));
+			if (m_Snake.GetScore() > _highScore) _highScore = m_Snake.GetScore();
+			m_textbox.Add("High Score: " + std::to_string((long long)_highScore));
 			m_Snake.Reset();
 		}
 	}

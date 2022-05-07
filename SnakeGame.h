@@ -21,4 +21,5 @@ private:
 	Textbox m_textbox;
 	float m_Elapsed;
 	sf::Clock m_Clock;
+	int _highScore = 0;
 };
