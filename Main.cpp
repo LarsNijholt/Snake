@@ -1,8 +1,8 @@
-#include "Game.h"
+#include "SnakeGame.h"
 
 void main(int argc, void** argv[])
 {
-	Game game; // Creating game object
+	SnakeGame game; // Creating game object
 	while (!game.GetWindow()->IsDone())
 	{
 		// Game loop.

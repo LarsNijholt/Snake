@@ -6,14 +6,19 @@ class SnakeGame
 {
 public:
 	SnakeGame();
+	~SnakeGame();
 	sf::Time GetElapsed();
 	void RestartClock();
-private:
 	void Update();
 	void Render();
+	void HandleInput();
+	Window* GetWindow();
+private:
+	
 	Window m_window;
 	World m_world;
 	Snake m_Snake;
-	sf::Time m_Elapsed;
+	Textbox m_textbox;
+	float m_Elapsed;
 	sf::Clock m_Clock;
 };

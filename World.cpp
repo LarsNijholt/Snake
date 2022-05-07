@@ -10,7 +10,7 @@ World::World(sf::Vector2u _windSize)
 	m_appleShape.setFillColor(sf::Color::Red);
 	m_appleShape.setRadius(m_blockSize / 2);
 	
-	for (size_t i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		m_bounds[i].setFillColor(sf::Color(150, 0, 0));
 		if (!((i + 1) % 2))
@@ -19,7 +19,7 @@ World::World(sf::Vector2u _windSize)
 		}
 		else
 		{
-			m_bounds[i].setSize(sf::Vector2f(_windowSize.x, m_blockSize));
+			m_bounds[i].setSize(sf::Vector2f(m_blockSize, _windowSize.y));
 		}
 		if (i < 2)
 		{

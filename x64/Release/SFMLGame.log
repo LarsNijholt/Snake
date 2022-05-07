@@ -1,7 +1,6 @@
-﻿  Game.cpp
-  Generating code
-  5 of 8 functions (62.5%) were compiled, the rest were copied from previous compilation.
-    1 functions were new in current compilation
+﻿  Generating code
+  0 of 301 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  SFMLGame.vcxproj -> C:\Users\larsn\source\repos\SFMLGame\x64\Release\SFMLGame.exe
+  SFMLGame.vcxproj -> C:\Users\larsn\source\repos\SFMLGame\SFML\x64\Release\SFMLGame.exe

@@ -1,5 +1,6 @@
 #pragma once
 #include "Window.h"
+#include "Textbox.h"
 #include <vector>
 
 struct SnakeSegment
@@ -14,12 +15,13 @@ enum class Direction { None, Up, Down, Left, Right };
 class Snake
 {
 public:
-	Snake(int _blockSize);
+	Snake(int _blockSize, Textbox* _log);
 	~Snake();
 
 	// Helper methods.
 	void SetDirection(Direction _dir);
 	Direction GetDirection();
+	Direction GetPhysicalDirection();
 	int GetSpeed();
 	sf::Vector2i GetPosition();
 	int GetLives();
@@ -48,4 +50,5 @@ private:
 	int m_score; // Score.
 	bool m_lost; // Losing state.
 	sf::RectangleShape m_bodyRect; // Shape used in rendering.
+	Textbox* m_textbox;
 };

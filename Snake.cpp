@@ -1,11 +1,14 @@
 #include "Snake.h"
 
-Snake::Snake(int _blockSize)
+Snake::Snake(int _blockSize, Textbox* _log)
 {
+	m_textbox = _log;
 	m_size = _blockSize;
 	m_bodyRect.setSize(sf::Vector2f(m_size - 1, m_size - 1));
 	Reset();
 }
+
+Snake::~Snake() {}
 
 void Snake::Reset()
 {
@@ -28,6 +31,28 @@ void Snake::Tick()
 	if (m_dir == Direction::None) { return; }
 	Move();
 	CheckCollision();
+}
+
+Direction Snake::GetPhysicalDirection()
+{
+	if (m_snakeBody.size() <= 1)
+	{
+		return Direction::None;
+	}
+
+	SnakeSegment& head = m_snakeBody[0];
+	SnakeSegment& neck = m_snakeBody[1];
+
+	if (head.position.x == neck.position.x)
+	{
+		return (head.position.y > neck.position.y ? Direction::Down : Direction::Up);
+	}
+	else if (head.position.y == neck.position.y)
+	{
+		return(head.position.x > neck.position.x ? Direction::Right : Direction::Left);
+	}
+
+	return Direction::None;
 }
 
 void Snake::Move()
@@ -77,6 +102,8 @@ void Snake::Cut(int _segments)
 	}
 	--m_lives;
 	if (!m_lives) { Lose(); return; }
+
+	m_textbox->Add("You have lost a life, lives left: " + std::to_string((long long)m_lives));
 }
 
 void Snake::Render(sf::RenderWindow& _window)
@@ -108,7 +135,7 @@ sf::Vector2i Snake::GetPosition()
 int Snake::GetLives() { return m_lives; }
 int Snake::GetScore() { return m_score; }
 
-void Snake::IncreaseScore() { m_score += 10; }
+void Snake::IncreaseScore() { m_score += 1; m_textbox->Add("You ate an apple. Score: " + std::to_string((long long)m_score)); }
 bool Snake::HasLost() { return m_lost; }
 void Snake::Lose() { m_lost = true; }
 void Snake::ToggleLost() { m_lost = !m_lost; }
@@ -126,6 +153,10 @@ void Snake::Extend()
 		{
 			if (tail_head.position.y > tail_bone.position.y)
 			{
+				m_snakeBody.push_back(SnakeSegment(tail_head.position.x, tail_head.position.y + 1));
+			}
+			else
+			{
 				m_snakeBody.push_back(SnakeSegment(tail_head.position.x, tail_head.position.y - 1));
 			}
 		}
@@ -134,6 +165,10 @@ void Snake::Extend()
 			if (tail_head.position.x > tail_bone.position.x)
 			{
 				m_snakeBody.push_back(SnakeSegment(tail_head.position.x + 1, tail_head.position.y));
+			}
+			else
+			{
+				m_snakeBody.push_back(SnakeSegment(tail_head.position.x - 1, tail_head.position.y));
 			}
 		}
 	}
@@ -156,5 +191,4 @@ void Snake::Extend()
 			m_snakeBody.push_back(SnakeSegment(tail_head.position.x - 1, tail_head.position.y));
 		}
 	}
-
 }
