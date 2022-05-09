@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\larsn\source\repos\SFMLGame\SFML\x64\Release\SFMLGame.exe</FullPath>
+      <FullPath>C:\Users\larsn\SFML\x64\Release\SFMLGame.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
